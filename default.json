@@ -1,0 +1,32 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:best-practices"],
+  "dependencyDashboard": false,
+  "timezone": "Asia/Tokyo",
+  "labels": ["dependencies"],
+  "packageRules": [
+    {
+      "description": "major は人間が判断する",
+      "matchUpdateTypes": ["major"],
+      "automerge": false
+    },
+    {
+      "description": "routine な更新は automerge に任せる",
+      "matchUpdateTypes": ["minor", "patch", "pin", "pinDigest", "digest"],
+      "automerge": true
+    },
+    {
+      "description": "lockfile 全体の更新も automerge の対象にする",
+      "matchUpdateTypes": ["lockFileMaintenance"],
+      "automerge": true
+    },
+    {
+      "matchPackageNames": ["/eslint/"],
+      "addLabels": ["dependencies:lint"]
+    },
+    {
+      "matchPackageNames": ["/prettier/"],
+      "addLabels": ["dependencies:format"]
+    }
+  ]
+}
