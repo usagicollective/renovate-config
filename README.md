@@ -1,10 +1,8 @@
 # renovate-config
 
-usagicollective org 共通の Renovate 設定プリセット。
+usagicollective org 共通の Renovate 設定プリセット
 
 ## 使い方
-
-各リポジトリの `renovate.json` は、原則これを extends するだけにする。
 
 ```json
 {
@@ -12,8 +10,6 @@ usagicollective org 共通の Renovate 設定プリセット。
   "extends": ["github>usagicollective/renovate-config"]
 }
 ```
-
-リポジトリ固有の事情でプリセットから外れる場合は、`renovate.json` にコメントを書くのではなく [orchestration の docs/ops/renovate.md](https://github.com/usagicollective/orchestration/blob/main/docs/ops/renovate.md) に理由を記録する。
 
 ## 方針
 
@@ -31,10 +27,7 @@ usagicollective org 共通の Renovate 設定プリセット。
 - `dependencyDashboard: false` — Issue でのダッシュボードを作らない
 - `timezone: Asia/Tokyo`
 - 全 PR に `dependencies` ラベル。eslint 関連には `dependencies:lint`、prettier 関連には `dependencies:format` を追加
-
-## 注意
-
-**このリポジトリは public にしている。** private な preset リポジトリを参照するには、preset リポジトリ自体への Renovate App のインストールと `local>` 構文が必要で、さらに参照側が public だと解決できない。プリセットに秘匿する内容はないため、制約の少ない public を選んでいる。
+- `cloudflare` - wrangler と workers-types は peer 依存で結合しているためまとめて更新する
 
 ## 参照
 
