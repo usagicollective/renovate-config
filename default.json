@@ -21,6 +21,12 @@
       "automerge": true
     },
     {
+      "description": "wrangler と workers-types は peer 依存で結合しているためまとめて更新する",
+      "matchPackageNames": ["wrangler", "@cloudflare/workers-types"],
+      "groupName": "cloudflare",
+      "separateMajorMinor": false
+    },
+    {
       "matchPackageNames": ["/eslint/"],
       "addLabels": ["dependencies:lint"]
     },
