@@ -13,7 +13,7 @@ usagicollective org 共通の Renovate 設定プリセット
 
 ## 方針
 
-**routine な依存更新は automerge に任せ、人間も AI も merge ボタンを押す作業から降りる。**
+`config:best-practices` + major 以外 automerge
 
 | 更新の種類 | automerge | 補足 |
 | :-- | :-- | :-- |
