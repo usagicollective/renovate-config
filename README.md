@@ -22,6 +22,8 @@ usagicollective org 共通の Renovate 設定プリセット
 | `pin` / `pinDigest` / `digest` | ✅ | `config:best-practices` による GitHub Actions の digest 固定を含む |
 | `lockFileMaintenance` | ✅ | lockfile 全体の再生成 |
 
+**自 org の action だけは digest を固定しない**（`usagicollective/actions`）。同じ org で trust boundary が同じため pin の防御効果が無く、main が動くたびに全リポジトリへ更新 PR が出るため。**外部 action の digest 固定は続ける。**
+
 その他の設定:
 
 - `dependencyDashboard: false` — Issue でのダッシュボードを作らない
