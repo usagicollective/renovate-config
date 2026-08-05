@@ -6,6 +6,13 @@
   "labels": ["dependencies"],
   "packageRules": [
     {
+      "description": "npm は公開から 3 日待ってから更新を出す。各リポジトリの .npmrc の min-release-age=3 と対にする。config:best-practices が extends する security:minimumReleaseAgeNpm と同値だが、上流が変えても両者がずれないよう明示する",
+      "matchDatasources": ["npm"],
+      "matchUpdateTypes": ["major", "minor", "patch"],
+      "minimumReleaseAge": "3 days",
+      "internalChecksFilter": "strict"
+    },
+    {
       "description": "major は人間が判断する",
       "matchUpdateTypes": ["major"],
       "automerge": false
