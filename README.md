@@ -30,6 +30,7 @@ usagicollective org 共通の Renovate 設定プリセット
 - `timezone: Asia/Tokyo`
 - 全 PR に `dependencies` ラベル。eslint 関連には `dependencies:lint`、prettier 関連には `dependencies:format` を追加
 - `cloudflare` - wrangler と workers-types は peer 依存で結合しているためまとめて更新する
+- `astro` - astro と `@astrojs/*` は peer で結合しているためまとめて更新する
 
 ## 参照
 
