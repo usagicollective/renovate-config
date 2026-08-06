@@ -33,6 +33,11 @@
       "separateMajorMinor": false
     },
     {
+      "description": "astro と @astrojs/* は peer で結合しているためまとめて更新する。@astrojs/svelte@8 の peer が astro ^6.0.0 のように、astro の major を単独で上げると ERESOLVE になる",
+      "matchPackageNames": ["astro", "/^@astrojs\\//"],
+      "groupName": "astro"
+    },
+    {
       "matchPackageNames": ["/eslint/"],
       "addLabels": ["dependencies:lint"]
     },
