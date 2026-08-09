@@ -6,23 +6,23 @@
   "labels": ["dependencies"],
   "packageRules": [
     {
-      "description": "自 org の action は digest を固定せず main を追わせる。同じ org なので pin の防御効果が無く、main が動くたびに全リポジトリへ更新 PR が出る（action リポジトリ自身では merge するたびに次の PR が出る無限ループになる）",
+      "description": "自 Org の action は digest を固定せず main を追わせる。（actions リポジトリ自身では merge するたびに次の PR が出て無限ループになる）",
       "matchManagers": ["github-actions"],
       "matchDepNames": ["usagicollective/actions"],
       "enabled": false
     },
     {
-      "description": "major は人間が判断する",
+      "description": "major は automerge しない",
       "matchUpdateTypes": ["major"],
       "automerge": false
     },
     {
-      "description": "routine な更新は automerge に任せる",
+      "description": "minor 以下は automerge",
       "matchUpdateTypes": ["minor", "patch", "pin", "pinDigest", "digest"],
       "automerge": true
     },
     {
-      "description": "lockfile 全体の更新も automerge の対象にする",
+      "description": "lockfile 全体の更新も automerge",
       "matchUpdateTypes": ["lockFileMaintenance"],
       "automerge": true
     },
@@ -33,7 +33,7 @@
       "separateMajorMinor": false
     },
     {
-      "description": "astro と @astrojs/* は peer で結合しているためまとめて更新する。@astrojs/svelte@8 の peer が astro ^6.0.0 のように、astro の major を単独で上げると ERESOLVE になる",
+      "description": "astro と @astrojs/* は peer で結合しているためまとめて更新する",
       "matchPackageNames": ["astro", "/^@astrojs\\//"],
       "groupName": "astro"
     },
