@@ -38,6 +38,11 @@
       "groupName": "astro"
     },
     {
+      "description": "@lucide/astro と lucide-preact は同じモノレポの同時リリースのためまとめて更新する",
+      "matchPackageNames": ["@lucide/astro", "lucide-preact"],
+      "groupName": "lucide"
+    },
+    {
       "matchPackageNames": ["/eslint/"],
       "addLabels": ["dependencies:lint"]
     },

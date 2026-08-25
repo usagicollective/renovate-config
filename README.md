@@ -29,6 +29,7 @@ Org 共通の Renovate 設定プリセット
 - 全 PR に `dependencies` ラベル。eslint 関連には `dependencies:lint`、prettier 関連には `dependencies:format` を追加
 - `cloudflare` - wrangler と workers-types は peer 依存で結合しているためまとめて更新する
 - `astro` - astro と `@astrojs/*` は peer で結合しているためまとめて更新する
+- `lucide` - `@lucide/astro` と `lucide-preact` は同じモノレポの同時リリースのためまとめて更新する
 
 ## 参照
 
