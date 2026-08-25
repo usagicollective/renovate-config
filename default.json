@@ -38,8 +38,20 @@
       "groupName": "astro"
     },
     {
-      "description": "@lucide/astro と lucide-preact は同じモノレポの同時リリースのためまとめて更新する",
-      "matchPackageNames": ["@lucide/astro", "lucide-preact"],
+      "description": "lucide のアイコンパッケージは同一モノレポで同時にリリースされるためまとめて更新する。別のリリース列を持つ @lucide/lab・内部ツール（@lucide/build-icons 等）・deprecated な lucide-vue-next / lucide-angular / lucide-svelte は含めない",
+      "matchPackageNames": [
+        "lucide",
+        "lucide-preact",
+        "lucide-react",
+        "lucide-react-native",
+        "lucide-solid",
+        "lucide-static",
+        "@lucide/angular",
+        "@lucide/astro",
+        "@lucide/icons",
+        "@lucide/svelte",
+        "@lucide/vue"
+      ],
       "groupName": "lucide"
     },
     {
