@@ -17,6 +17,12 @@
       "automerge": false
     },
     {
+      "description": "TypeScript v7 / ESLint v10 / eslint-plugin-astro v3 は上流の peer 対応まで更新を停止する。対応状況を定期確認し、install と CI が成功したらこの無効化を解除する",
+      "matchPackageNames": ["typescript", "eslint", "eslint-plugin-astro"],
+      "matchUpdateTypes": ["major"],
+      "enabled": false
+    },
+    {
       "description": "minor 以下は automerge",
       "matchUpdateTypes": ["minor", "patch", "pin", "pinDigest", "digest"],
       "automerge": true
