@@ -11,7 +11,24 @@ Org 共通の Renovate 設定プリセット
 }
 ```
 
-## 方針
+## プリセット
+
+| プリセット | extends の書き方 | 更新の出し方 |
+| :-- | :-- | :-- |
+| `default` | `github>usagicollective/renovate-config` | 週次（金曜 20 時〜土曜終日・JST）。major 以外を 1 本の PR にまとめる |
+| `active-update` | `github>usagicollective/renovate-config:active-update` | 随時。更新ごと（またはグループごと）に PR を出す |
+
+両者とも org 共通の設定 `base` を extends する。`active-update` は `base` そのもので、`default` は `base` にスケジュールとグループ化を足したもの。`base` は部品として置いているため、リポジトリからは `default` か `active-update` を extends する。
+
+### `default`（週次）
+
+- PR を作るのは金曜 20 時〜土曜終日のみ（`schedule: ["* 20-23 * * 5", "* * * * 6"]`、`timezone: Asia/Tokyo`）。作成済みの PR の rebase と automerge は曜日を問わず続く
+- `minor` / `patch` / `pin` / `pinDigest` / `digest` を `all non-major dependencies` の 1 本にまとめる
+- `major` はまとめない。automerge しない更新が入るとグループ全体が automerge されなくなるため、従来どおり個別（または下記のグループ単位）の PR になる
+- `lockFileMaintenance` も同じ枠で出す。Renovate は lockfile の再生成を他の更新と同じ PR にまとめられないため、別の PR になる
+- 脆弱性の更新は `vulnerabilityAlerts` の既定のまま。スケジュールに関係なく、別の PR ですぐに出る
+
+## 方針（`base`。両プリセット共通）
 
 `config:best-practices` + major 以外 automerge
 
@@ -24,7 +41,7 @@ Org 共通の Renovate 設定プリセット
 
 **自 org の action だけは digest を固定しない**（`usagicollective/actions`）。同じ org で trust boundary が同じため pin の防御効果が無く、main が動くたびに全リポジトリへ更新 PR が出るため。**外部 action の digest 固定は続ける。**
 
-その他の設定:
+その他の設定（`default` ではグループ化により major 以外は `all non-major dependencies` にまとまるため、以下のグループは主に major で効く）:
 
 - 全 PR に `dependencies` ラベル。eslint 関連には `dependencies:lint`、prettier 関連には `dependencies:format` を追加
 - `cloudflare` - wrangler と workers-types は peer 依存で結合しているためまとめて更新する
