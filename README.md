@@ -18,7 +18,7 @@ Org 共通の Renovate 設定プリセット
 | `default` | `github>usagicollective/renovate-config` | 週次（土曜・JST）。major 以外を 1 本の PR にまとめる |
 | `active-update` | `github>usagicollective/renovate-config:active-update` | 随時。更新ごと（またはグループごと）に PR を出す |
 
-`default` は `active-update` の設定をすべて引き継ぎ、スケジュールとグループ化だけを足す。
+両者とも org 共通の設定 `base` を extends する。`active-update` は `base` そのもので、`default` は `base` にスケジュールとグループ化を足したもの。`base` は部品として置いているため、リポジトリからは `default` か `active-update` を extends する。
 
 ### `default`（週次）
 
@@ -28,7 +28,7 @@ Org 共通の Renovate 設定プリセット
 - `lockFileMaintenance` も土曜に出す。Renovate は lockfile の再生成を他の更新と同じ PR にまとめられないため、別の PR になる
 - 脆弱性の更新は `vulnerabilityAlerts` の既定のまま。スケジュールに関係なく、別の PR ですぐに出る
 
-## 方針（両プリセット共通）
+## 方針（`base`。両プリセット共通）
 
 `config:best-practices` + major 以外 automerge
 

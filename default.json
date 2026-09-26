@@ -1,6 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["github>usagicollective/renovate-config:active-update"],
+  "extends": ["github>usagicollective/renovate-config:base"],
   "schedule": ["* * * * 6"],
   "lockFileMaintenance": {
     "schedule": ["* * * * 6"]
