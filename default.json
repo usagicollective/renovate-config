@@ -11,6 +11,13 @@
       "matchUpdateTypes": ["minor", "patch", "pin", "pinDigest", "digest"],
       "groupName": "all non-major dependencies",
       "groupSlug": "all-non-major"
+    },
+    {
+      "description": "lint / format のツールは all-non-major から外して別の PR にまとめる。グループの PR には含まれる全更新のラベルが合算されて付くため、混ぜると dependencies:lint / dependencies:format の付いた PR に見た目に関わる更新が紛れ込み、ラベルでプレビューを省けなくなる。条件は base.json の dependencies:lint / dependencies:format の規則と揃えること",
+      "matchPackageNames": ["/eslint/", "/prettier/"],
+      "matchUpdateTypes": ["minor", "patch", "pin", "pinDigest", "digest"],
+      "groupName": "lint and format tools",
+      "groupSlug": "lint-format"
     }
   ]
 }

@@ -61,10 +61,12 @@
       "groupName": "lucide"
     },
     {
+      "description": "条件は default.json の lint-format グループと揃えること。呼び出し側はこのラベルで renovate の PR のプレビューを省いており、片方だけ変えるとグループの PR に見た目に関わる更新が混ざったままラベルが付く",
       "matchPackageNames": ["/eslint/"],
       "addLabels": ["dependencies:lint"]
     },
     {
+      "description": "条件は default.json の lint-format グループと揃えること。呼び出し側はこのラベルで renovate の PR のプレビューを省いており、片方だけ変えるとグループの PR に見た目に関わる更新が混ざったままラベルが付く",
       "matchPackageNames": ["/prettier/"],
       "addLabels": ["dependencies:format"]
     }
